@@ -26,8 +26,8 @@ library(icesSAG)
 ### save and restart R
 
 ### load token
-Sys.getenv("SG_PAT")
-options(icesSAG.use_token = TRUE)
+#Sys.getenv("SG_PAT")
+#options(icesSAG.use_token = TRUE)
 
 ### assessment year
 ass_yr <- 2021
@@ -37,7 +37,7 @@ key <- findAssessmentKey("ple.27.7e", year = ass_yr)
 key_last <- findAssessmentKey("ple.27.7e", year = ass_yr - 1)
 
 ### last year's graphs
-plot(getSAGGraphs(key_last))
+#plot(getSAGGraphs(key_last))
 
 ### list of possible elements:
 ### https://datsu.ices.dk/web/selRep.aspx?Dataset=126
@@ -49,7 +49,10 @@ stk_info <- stockInfo(
   StockCode = "ple.27.7e",
   AssessmentYear = ass_yr,
   ContactPerson = "your.email@email.gov",
-  Purpose = "Advice"
+  Purpose = "Advice",
+  StockCategory = 3,
+  ModelType = "",
+  ModelName = ""
 )
 
 ### add some more data manually
@@ -71,8 +74,7 @@ stk_info$StockSizeDescription <- "SSB"
 stk_info$FishingPressureDescription <- "F"
 # stk_info$FishingPressureDescription <- "Fishing pressure: Relative"
 stk_info$Purpose <- "Advice"
-stk_info$ModelType <- "A"
-stk_info$ModelName <- "XSA"
+
 
 ### load data from assessment/forecast
 sag <- read.csv(file = "report/tables_sag.csv", as.is = TRUE)
@@ -91,4 +93,4 @@ stk_data <- stockFishdata(
 
 ### create xml file
 stkxml <- createSAGxml(info, fishdata)
-cat(stkxml, file = "SAG_upload.xml")
+cat(stkxml, file = "report/SAG_upload.xml")

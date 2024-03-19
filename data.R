@@ -2,9 +2,9 @@
 ### Preprocess data, write TAF data tables ####
 ### ------------------------------------------------------------------------ ###
 
-## Before: bootstrap/data/FSP7e.csv
-##         bootstrap/data/advice/advice_history.csv
-##         bootstrap/data/InterCatch_length.csv
+## Before: boot/data/FSP7e.csv
+##         boot/data/advice/advice_history.csv
+##         boot/data/InterCatch_length.csv
 ## After:  data/idx.csv
 ##         data/advice_history.csv
 ##         data/length_data.rds
