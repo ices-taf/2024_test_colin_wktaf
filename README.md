@@ -2,6 +2,5 @@
 
 Some changes:
 * point 1
-* point 2
 
   
