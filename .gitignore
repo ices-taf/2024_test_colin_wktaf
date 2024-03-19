@@ -10,3 +10,7 @@ data_indices.R
 
 /boot/data/
 /boot/software/
+
+/data/
+/model/
+/report/
